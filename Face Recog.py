@@ -31,7 +31,7 @@ face_detector = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
 face_id = input('\n Enter user ID>>')
 print("\n Initialiseng face capture. look at the camera and wait...")
 count=0
-while(True):
+while(count<30):
     ret, img = cam.read()
     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
     faces = face_detector.detectMultiScale(gray, 1.3, 5)
