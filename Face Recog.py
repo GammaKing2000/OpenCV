@@ -80,7 +80,7 @@ detector = cv2.CascadeClassifier("haarcascade_frontalface_default.xml")
 # this file is directly in project folder
 
 def getImagesAndLables(path):
-    imagePath = [os.path.join(parh, f) for f in os.listdir(path)]
+    imagePath = [os.path.join(path, f) for f in os.listdir(path)]
 # os.path.join is an example where we are interfering with os/drive.
 # os.path.join (path, f)>> it concatnates path and f. Eg. os.path.join(C:, User) output will be C:\Users
 # os.listdir(path)>> Lists the files within the path. Eg. os.pathdir(C:) will result Program Files, Users, Windows, etc
@@ -102,10 +102,10 @@ def getImagesAndLables(path):
 # uint8>> it is the unsighed interger in 8 bits(comes with numpy, not in-built in python)
 
         id = int(os.path.split(imgPath)[-1].split(".")[1])
-# os.path.split>> it splita path into two parts, 1. Head path[denoted as 1] and 2. Tail path[denoted as -1]. (Eg. Users/AJ/file.txt>> User/AJ=Head file, file.txt=Tail file)
+# os.path.split>> it splits a path into two parts, 1.Head path[denoted as 1] and 2.Tail path[denoted as -1]. (Eg. Users/AJ/file.txt>> [User/AJ]=Head file, [file.txt]=Tail file)
 #                 Eg. imagepath = C:/Users/AJ/Users.01.01.jpg>> C:/Users/AJ=Head and Users.01.01.jpg=Tail
 #                 (if we again split head then it takes letters but if we again split tail then it only takes numbers
-#                 here when we split again, we are splitting from '.'. so head=User and tail=01.01, again split and we remain with 01 
+#                 here when we split again, we are splitting from '.'. so head=User and tail=01.01, split again and we remain with 01 
 
         faces - detector.detectMultiScale(img_numpy)
         for (x, y, w, h) in faces:
